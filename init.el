@@ -22,10 +22,10 @@
 (global-set-key (kbd "M-k") 'previous-line)
 (global-set-key (kbd "M-h") 'backward-char)
 (global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "M-J") 'forward-sentence)
-(global-set-key (kbd "M-K") 'backward-sentence)
-(global-set-key (kbd "M-H") 'backward-word)
-(global-set-key (kbd "M-L") 'forward-word)
+(global-set-key (kbd "M-C-j") 'forward-sentence)
+(global-set-key (kbd "M-C-k") 'backward-sentence)
+(global-set-key (kbd "M-C-h") 'backward-word)
+(global-set-key (kbd "M-C-l") 'forward-word)
 
 ;; tuareg mode
 (add-to-list 'load-path "~/.emacs.d/tuareg-2.0.4")
