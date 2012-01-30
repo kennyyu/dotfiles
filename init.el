@@ -16,11 +16,16 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
-;; enable mouse clicking in emacs
-(require 'mouse)
-(xterm-mouse-mode t)
-(defun track-mouse (e))
-(setq mouse-sel-mode t)
+;; hotkeys
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "M-j") 'next-line)
+(global-set-key (kbd "M-k") 'previous-line)
+(global-set-key (kbd "M-h") 'backward-char)
+(global-set-key (kbd "M-l") 'forward-char)
+(global-set-key (kbd "M-J") 'forward-sentence)
+(global-set-key (kbd "M-K") 'backward-sentence)
+(global-set-key (kbd "M-H") 'backward-word)
+(global-set-key (kbd "M-L") 'forward-word)
 
 ;; tuareg mode
 (add-to-list 'load-path "~/.emacs.d/tuareg-2.0.4")
@@ -41,6 +46,15 @@
 (add-to-list 'load-path "~/.emacs.d")
 (require 'linum)
 (global-linum-mode 1)
+
+;; enable mouse clicking in emacs
+(require 'mouse)
+(xterm-mouse-mode t)
+(defun track-mouse (e))
+(setq mouse-sel-mode t)
+
+;; mouse control and mouse scroll
+(require 'mwheel)
 
 ;; directory trees
 (autoload 'dirtree "dirtree" "Add directory to tree view" t)
