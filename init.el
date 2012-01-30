@@ -18,6 +18,9 @@
 
 ;; hotkeys
 (global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-o") 'other-window)
+(global-set-key (kbd "C-t") 'dirtree)
+
 (global-set-key (kbd "M-j") 'next-line)
 (global-set-key (kbd "M-k") 'previous-line)
 (global-set-key (kbd "M-h") 'backward-char)
