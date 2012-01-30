@@ -17,7 +17,7 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
 ;; hotkeys
-(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "C-t") 'dirtree)
 
@@ -25,10 +25,17 @@
 (global-set-key (kbd "M-k") 'previous-line)
 (global-set-key (kbd "M-h") 'backward-char)
 (global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "M-C-j") 'forward-sentence)
-(global-set-key (kbd "M-C-k") 'backward-sentence)
-(global-set-key (kbd "M-C-h") 'backward-word)
-(global-set-key (kbd "M-C-l") 'forward-word)
+(global-set-key (kbd "M-J") 'forward-sentence)
+(global-set-key (kbd "M-K") 'backward-sentence)
+(global-set-key (kbd "M-H") 'backward-word)
+(global-set-key (kbd "M-L") 'forward-word)
+
+;; function collapsing
+(outline-minor-mode)
+(global-set-key (kbd "M-6") 'hide-sublevels)
+(global-set-key (kbd "M-7") 'show-all)
+(global-set-key (kbd "M-8") 'hide-subtree)
+(global-set-key (kbd "M-9") 'show-subtree)
 
 ;; tuareg mode
 (add-to-list 'load-path "~/.emacs.d/tuareg-2.0.4")
