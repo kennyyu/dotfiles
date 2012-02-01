@@ -25,8 +25,8 @@
 (global-set-key (kbd "M-k") 'previous-line)
 (global-set-key (kbd "M-h") 'backward-char)
 (global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "M-J") 'forward-sentence)
-(global-set-key (kbd "M-K") 'backward-sentence)
+(global-set-key (kbd "M-J") 'forward-paragraph)
+(global-set-key (kbd "M-K") 'backward-paragraph)
 (global-set-key (kbd "M-H") 'backward-word)
 (global-set-key (kbd "M-L") 'forward-word)
 
