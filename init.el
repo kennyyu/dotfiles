@@ -19,7 +19,7 @@
 ;; hotkeys
 (global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-o") 'other-window)
-(global-set-key (kbd "C-s") 'dirtree)
+(global-set-key (kbd "M-t") 'dirtree)
 (global-set-key (kbd "C-t") 'sr-speedbar-toggle)
 
 (global-set-key (kbd "M-j") 'next-line)
