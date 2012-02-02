@@ -1,4 +1,5 @@
 ;;; Tabbar.el --- Display a tab bar in the header line
+
 ;; Copyright (C) 2003, 2004, 2005 David Ponce
 
 ;; Author: David Ponce <david@dponce.com>
