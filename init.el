@@ -47,15 +47,6 @@
 		("\\.topml$" . tuareg-mode))
 	      auto-mode-alist))
 
-;; emacs goodies --tabbar
-(add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
-(require 'tabbar)
-(tabbar-mode)
-(global-set-key (kbd "<C-left>") 'tabbar-backward-tab)
-(global-set-key (kbd "<C-right>") 'tabbar-forward-tab)
-(global-set-key (kbd "<C-up>") 'tabbar-backward-group)
-(global-set-key (kbd "<C-down>") 'tabbar-forward-group)
-
 ;; color theme
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
@@ -71,7 +62,6 @@
 (require 'sr-speedbar)
 (setq-default sr-speedbar-right-side nil)
 
-
 ;; enable mouse clicking in emacs
 (require 'mouse)
 (xterm-mouse-mode t)
@@ -80,6 +70,15 @@
 
 ;; mouse control and mouse scroll
 (require 'mwheel)
+
+;; emacs goodies --tabbar
+(add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
+(require 'tabbar)
+(tabbar-mode)
+(global-set-key (kbd "<C-left>") 'tabbar-backward-tab)
+(global-set-key (kbd "<C-right>") 'tabbar-forward-tab)
+(global-set-key (kbd "<C-up>") 'tabbar-backward-group)
+(global-set-key (kbd "<C-down>") 'tabbar-forward-group)
 
 ;; directory trees
 (autoload 'dirtree "dirtree" "Add directory to tree view" t)
