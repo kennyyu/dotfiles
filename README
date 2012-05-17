@@ -1,3 +1,13 @@
-init.el
+Emacs settings and macros
+=========================
 
-Links all the dotfiles together.
+Files
+=====
+init.el
+        puts everything together. See this for my custom hotkeys and
+        global settings
+
+To install
+==========
+(1) Make a copy of your existing .emacs.d directory.
+(2) cd into your home directory (~), and clone this repository.
