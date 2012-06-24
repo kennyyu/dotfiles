@@ -91,6 +91,8 @@
 (add-hook 'find-file-hook 'highlight-80+-mode)
 
 ;; delete extra whitespace
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+
 (defun duplicate-line (arg)
   "Duplicate current line, leaving point in lower line."
   (interactive "*p")
