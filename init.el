@@ -21,6 +21,9 @@
 (global-set-key (kbd "C-o") 'other-window)
 (global-set-key (kbd "M-t") 'dirtree)
 (global-set-key (kbd "C-t") 'sr-speedbar-toggle)
+(global-set-key (kbd "C-b") 'ecb-activate)
+(global-set-key (kbd "M-b") 'ecb-deactivate)
+(global-set-key (kbd "C-w") 'delete-trailing-whitespace)
 
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
@@ -45,7 +48,7 @@
 (add-to-list 'load-path "~/.emacs.d/tuareg-2.0.4")
 (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
 (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
-(setq auto-mode-alist 
+(setq auto-mode-alist
       (append '(("\\.ml[ily]?$" . tuareg-mode)
 		("\\.topml$" . tuareg-mode))
 	      auto-mode-alist))
@@ -121,3 +124,31 @@
     ) ; end-of-let
   ;; put the point in the lowest line and return
   (next-line arg))
+
+;; CEDET
+(load-file "~/.emacs.d/cedet-1.0pre6/common/cedet.el")
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+
+;; ECB
+(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
+(require 'ecb)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-layout-name "left-directories-right-methods")
+ '(ecb-layout-window-sizes (quote (("left-directories-right-methods" (0.18232044198895028 . 0.9836065573770492) (0.22099447513812154 . 0.9836065573770492)))))
+ '(ecb-options-version "2.40")
+ '(ecb-other-window-behavior (quote all))
+ '(ecb-show-sources-in-directories-buffer (quote always))
+ '(gud-gdb-command-name "gdb --annotate=1")
+ '(large-file-warning-threshold nil))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
