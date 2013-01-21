@@ -57,14 +57,19 @@
 
 ;; line numbers
 (add-to-list 'load-path "~/.emacs.d")
+(load-file "~/.emacs.d/linum.el")
 (require 'linum)
 (global-linum-mode 1)
 
 ;; sr-speedbar for showing directory tree
+(load-file "~/.emacs.d/dirtree.el")
+(load-file "~/.emacs.d/tree-mode.el")
+(load-file "~/.emacs.d/sr-speedbar.el")
 (require 'sr-speedbar)
 (setq-default sr-speedbar-right-side nil)
 
 ;; enable mouse clicking in emacs
+(load-file "~/.emacs.d/mwheel.el")
 (require 'mouse)
 (xterm-mouse-mode t)
 (defun track-mouse (e))
@@ -74,6 +79,7 @@
 (require 'mwheel)
 
 ;; emacs goodies and hotkeys for switching tabs
+(load-file "~/.emacs.d/windata.el")
 (add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
 (require 'tabbar)
 (tabbar-mode)
@@ -83,6 +89,7 @@
 (global-set-key (kbd "<C-down>") 'tabbar-forward-group)
 
 ;; highlight 80 characters
+(load-file "~/.emacs.d/highlight-80+.el")
 (require 'highlight-80+)
 (add-hook 'find-file-hook 'highlight-80+-mode)
 
