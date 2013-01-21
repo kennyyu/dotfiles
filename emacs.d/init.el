@@ -106,6 +106,8 @@
 ;; ECB
 (add-to-list 'load-path "~/.emacs.d/ecb-2.40")
 (require 'ecb)
+(defvar start-dir (getenv "PWD"))
+(defvar start-dir-name (car (last (split-string start-dir "/"))))
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -115,6 +117,7 @@
  '(ecb-layout-window-sizes (quote (("left-directories-right-methods" (0.18232044198895028 . 0.9836065573770492) (0.22099447513812154 . 0.9836065573770492)))))
  '(ecb-options-version "2.40")
  '(ecb-other-window-behavior (quote all))
+ '(ecb-source-path (list (list start-dir start-dir-name)))
  '(ecb-show-sources-in-directories-buffer (quote always))
  '(gud-gdb-command-name "gdb --annotate=1")
  '(large-file-warning-threshold nil))
