@@ -1,0 +1,25 @@
+[core]
+	editor = emacs
+[user]
+	name = Kenny Yu
+	email = yu.kenny124@gmail.com
+[github]
+	user = kennyyu
+	token = 4aee613c344a7c261ea5841296fef889
+[color]
+	grep = auto
+	interactive = auto
+	showbranch = auto
+	status = auto
+	ui = auto
+[alias]
+        st = status
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+    	changes = diff --name-status -r
+    	diffstat = diff --stat -r
+
+    	who = shortlog -s --
+    	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+    	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+    	unstage = reset HEAD --
