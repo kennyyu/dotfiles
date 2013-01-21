@@ -16,18 +16,16 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
-;; hotkeys
-(global-set-key (kbd "M-z") 'undo)
-(global-set-key (kbd "C-o") 'other-window)
-(global-set-key (kbd "M-t") 'dirtree)
-(global-set-key (kbd "C-t") 'sr-speedbar-toggle)
-(global-set-key (kbd "C-b") 'ecb-activate)
+;; Hotkeys for special functionality
+(global-set-key (kbd "M-z") 'undo)               ;; Also C-/
+(global-set-key (kbd "C-o") 'other-window)       ;; Normally C-x o
+(global-set-key (kbd "C-t") 'sr-speedbar-toggle) ;; directory tree sidebar
+(global-set-key (kbd "C-b") 'ecb-activate)       ;; directory & code outline bars
 (global-set-key (kbd "M-b") 'ecb-deactivate)
-(global-set-key (kbd "C-w") 'delete-trailing-whitespace)
 
+;; Hotkeys VIM-like Movement
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
-
 (global-set-key (kbd "M-j") 'next-line)
 (global-set-key (kbd "M-k") 'previous-line)
 (global-set-key (kbd "M-h") 'backward-char)
@@ -44,7 +42,7 @@
 (global-set-key (kbd "M-8") 'hide-subtree)
 (global-set-key (kbd "M-9") 'show-subtree)
 
-;; tuareg mode
+;; tuareg mode for ocaml
 (add-to-list 'load-path "~/.emacs.d/tuareg-2.0.5")
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?" . tuareg-mode))
 (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code" t)
@@ -62,7 +60,7 @@
 (require 'linum)
 (global-linum-mode 1)
 
-;; sr-speedbar
+;; sr-speedbar for showing directory tree
 (require 'sr-speedbar)
 (setq-default sr-speedbar-right-side nil)
 
@@ -75,7 +73,7 @@
 ;; mouse control and mouse scroll
 (require 'mwheel)
 
-;; emacs goodies --tabbar
+;; emacs goodies and hotkeys for switching tabs
 (add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
 (require 'tabbar)
 (tabbar-mode)
@@ -84,46 +82,15 @@
 (global-set-key (kbd "<C-up>") 'tabbar-backward-group)
 (global-set-key (kbd "<C-down>") 'tabbar-forward-group)
 
-;; directory trees
-(autoload 'dirtree "dirtree" "Add directory to tree view" t)
-
 ;; highlight 80 characters
 (require 'highlight-80+)
 (add-hook 'find-file-hook 'highlight-80+-mode)
 
-;; delete extra whitespace
+;; delete extra whitespace on saving/writing files
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
+(add-hook 'before-saving-hooks 'delete-trailing-whitespace)
 
-(defun duplicate-line (arg)
-  "Duplicate current line, leaving point in lower line."
-  (interactive "*p")
-  ;; save the point for undo
-  (setq buffer-undo-list (cons (point) buffer-undo-list))
-  ;; local variables for start and end of line
-  (let ((bol (save-excursion (beginning-of-line) (point)))
-        eol)
-    (save-excursion
-      ;; don't use forward-line for this, because you would have
-      ;; to check whether you are at the end of the buffer
-      (end-of-line)
-      (setq eol (point))
-      ;; store the line and disable the recording of undo information
-      (let ((line (buffer-substring bol eol))
-            (buffer-undo-list t)
-            (count arg))
-        ;; insert the line arg times
-        (while (> count 0)
-          (newline)         ;; because there is no newline in 'line'
-          (insert line)
-          (setq count (1- count)))
-        )
-      ;; create the undo information
-      (setq buffer-undo-list (cons (cons eol (point)) buffer-undo-list)))
-    ) ; end-of-let
-  ;; put the point in the lowest line and return
-  (next-line arg))
-
-;; CEDET
+;; CEDET - necessary for ECB
 (load-file "~/.emacs.d/cedet-1.0pre6/common/cedet.el")
 (global-ede-mode 1)                      ; Enable the Project management system
 (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion
