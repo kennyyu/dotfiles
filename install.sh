@@ -1,14 +1,17 @@
 #!/bin/bash
 
-# base directory
-dir=`pwd`
-
-emacsrepo=$dir/emacs
-emacslink=~/.emacs.d
-ln -s $emacsrepo $emacslink
-echo Symlinking $emacsrepo to $emacslink
-
-gitrepo=$dir/gitconfig
-gitlink=~/.gitconfig
-ln -s $gitrepo $gitlink
-echo Symlinking $gitrepo to $gitlink
+for f in `ls | egrep -v "README|install"`
+do
+    if [ ! -e $HOME/.$f ]
+    then
+        echo "Symlinking $f"
+        if [ -d $f ]
+        then
+            ln -s `pwd`/$f/ $HOME/.$f
+        else
+            ln -s `pwd`/$f $HOME/.$f
+        fi
+    else
+        echo "Symlink to $f already exists!"
+    fi
+done
