@@ -4,6 +4,9 @@
 ;; show column numbers
 (column-number-mode t)
 
+;; see marked region
+(transient-mark-mode t)
+
 ;; show matching parens
 (show-paren-mode 1)
 
